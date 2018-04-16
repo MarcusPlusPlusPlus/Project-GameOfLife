@@ -47,8 +47,12 @@ class GameServer {
            et lance une nouvelle partie.
            Une fois la partie lancée, un tableau de cellules est renvoyé par les serveur.
         */
+        // const seedArray = seed.split("\n")
+        // console.log(`Height : ${seedArray.length}     Width : ${seedArray[0].length}`)
+        // seedArray.forEach(element => { console.log(element + "\n") })
+        
         return new Promise((resolve, reject) => {
-            console.log('GameServer :: init', seed)
+            console.log('GameServer :: init')
             this.ws = new WebSocket('ws://127.0.0.1:8080') 
             this.ws.onopen = () => {
                 this.ws.send('INIT'+seed)
@@ -59,7 +63,7 @@ class GameServer {
             }
             this.ws.onerror = error => {console.error(error)}
             this.ws.onclose = () => {console.error('GameServer :: socket closed')}
-        })
+        }), {"height": seed.split("\n").length, "width": seed.split("\n")[0].length}
     }
     next() {
         /* 

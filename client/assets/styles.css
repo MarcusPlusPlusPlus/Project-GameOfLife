@@ -1,0 +1,22 @@
+html {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+#grid {
+    background: #424242;
+    display: grid;
+    /* grid-template-columns: repeat(X, 1fr);  */
+    grid-gap: 0.25rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+.defaultCell {
+    height: 1rem;
+    width: 1rem;
+    background: #767676
+}
+.cellIsAlive {
+    background: #00A67E;
+}
